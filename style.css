@@ -1,0 +1,700 @@
+:root {
+  --primary: #00ff9d;
+  --primary-dark: #00cc7d;
+  --secondary: #00b8ff;
+  --dark: #0f172a;
+  --darker: #020617;
+  --light: #f8fafc;
+  --lighter: #ffffff;
+  --success: #00ff9d;
+  --danger: #ff4d4d;
+  --warning: #ffcc00;
+  --glass: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-dark: rgba(15, 23, 42, 0.7);
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--dark);
+  color: var(--light);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Background Effects */
+.gradient-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: radial-gradient(at 50% 50%, 
+    rgba(56, 189, 248, 0.3) 0%, 
+    rgba(103, 232, 249, 0.1) 20%, 
+    rgba(249, 168, 212, 0.05) 40%, 
+    transparent 70%);
+  z-index: -2;
+  transition: background 0.5s ease-out;
+}
+
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><circle cx="100" cy="100" r="1" fill="white" opacity="0.1"/><circle cx="300" cy="300" r="1" fill="white" opacity="0.1"/><circle cx="500" cy="700" r="1" fill="white" opacity="0.1"/><circle cx="700" cy="200" r="1" fill="white" opacity="0.1"/><circle cx="900" cy="600" r="1" fill="white" opacity="0.1"/></svg>');
+  background-size: 1000px 1000px;
+  animation: particlesMove 100s linear infinite;
+}
+
+@keyframes particlesMove {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 1000px 1000px; }
+}
+
+/* Navigation */
+.glass-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--glass-dark);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--glass-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo img {
+  border-radius: 50%;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ticker {
+  background: var(--primary);
+  color: var(--darker);
+  padding: 0.25rem 0.75rem;
+  border-radius: 2rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: var(--light);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+.wallet-btn {
+  background: var(--primary);
+  color: var(--darker);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.wallet-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 255, 157, 0.3);
+}
+
+.glow-on-hover {
+  position: relative;
+  z-index: 0;
+}
+
+.glow-on-hover:hover {
+  color: var(--darker);
+}
+
+.glow-on-hover:before {
+  content: '';
+  background: linear-gradient(45deg, 
+    var(--primary), var(--secondary), 
+    var(--primary), var(--secondary));
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 2rem;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  min-height: calc(100vh - 80px);
+  padding: 2rem;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 600px;
+}
+
+.hero-chart {
+  flex: 1;
+  height: 400px;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.price-card {
+  background: var(--glass-dark);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.price-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.price-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.coin-name {
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.price-ticker {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#currentPrice {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+#priceChange {
+  padding: 0.25rem 0.75rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.positive {
+  background: rgba(0, 255, 157, 0.1);
+  color: var(--success);
+}
+
+.negative {
+  background: rgba(255, 77, 77, 0.1);
+  color: var(--danger);
+}
+
+.sparkline {
+  height: 60px;
+  width: 100%;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.buy-btn, .sell-btn {
+  flex: 1;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.buy-btn {
+  background: var(--success);
+  color: var(--darker);
+}
+
+.sell-btn {
+  background: var(--danger);
+  color: white;
+}
+
+.buy-btn:hover, .sell-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.contract-info {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.contract-btn, .view-contract {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.contract-btn {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  color: var(--light);
+  border: none;
+}
+
+.view-contract {
+  color: var(--primary);
+}
+
+.contract-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Glass Cards */
+.glass-card {
+  background: var(--glass-dark);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+  transition: all 0.3s ease;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-align: center;
+}
+
+/* About Section */
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.about-text {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-text p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.about-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.feature-card {
+  background: var(--glass);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  background: rgba(0, 255, 157, 0.05);
+}
+
+.feature-card i {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.feature-card h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.feature-card p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+}
+
+/* Tokenomics Section */
+.tokenomics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.tokenomics-card {
+  background: var(--glass);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.tokenomics-card:hover {
+  transform: translateY(-5px);
+  background: rgba(0, 255, 157, 0.05);
+}
+
+.tokenomics-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(0, 255, 157, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.tokenomics-icon i {
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+
+.tokenomics-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.tokenomics-desc {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+}
+
+/* Roadmap Section */
+.roadmap-container {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.roadmap-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--primary);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.roadmap-items {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.roadmap-item {
+  display: flex;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.roadmap-item:nth-child(odd) {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.roadmap-marker {
+  width: 20px;
+  height: 20px;
+  background: var(--primary);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin: 0 1.5rem;
+  position: relative;
+  z-index: 2;
+  border: 3px solid var(--dark);
+}
+
+.roadmap-content {
+  flex: 1;
+  background: var(--glass);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.roadmap-content:hover {
+  transform: translateY(-5px);
+  background: rgba(0, 255, 157, 0.05);
+}
+
+.roadmap-content h4 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.roadmap-content ul {
+  list-style-type: none;
+}
+
+.roadmap-content li {
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.roadmap-content li::before {
+  content: '•';
+  color: var(--primary);
+  position: absolute;
+  left: 0;
+}
+
+/* Footer */
+footer {
+  padding: 2rem;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.social-link {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  transform: translateY(-5px);
+}
+
+.twitter { background: #1DA1F2; }
+.telegram { background: #0088CC; }
+.discord { background: #5865F2; }
+.medium { background: #00AB6C; }
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footer-link {
+  color: var(--light);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--primary);
+}
+
+.copyright {
+  margin-bottom: 0.5rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.disclaimer {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .hero-content {
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+  
+  .price-ticker {
+    justify-content: center;
+  }
+  
+  .action-buttons {
+    justify-content: center;
+  }
+  
+  .nav-links {
+    display: none;
+  }
+  
+  .roadmap-line {
+    left: 20px;
+  }
+  
+  .roadmap-item, .roadmap-item:nth-child(odd) {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .gradient-text {
+    font-size: 2rem;
+  }
+  
+  .tokenomics-grid,
+  .about-features {
+    grid-template-columns: 1fr;
+  }
+  
+  .action-buttons a {
+    width: 100%;
+  }
+  
+  .contract-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

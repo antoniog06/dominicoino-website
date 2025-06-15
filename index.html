@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="DominiCoinO - The next generation decentralized cryptocurrency">
+  <title>DominiCoinO (DCO) | Official Website</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.ico" sizes="any">
+</head>
+<body>
+  <!-- Animated Gradient Background -->
+  <div class="gradient-bg"></div>
+  
+  <!-- Floating Particles -->
+  <div class="particles"></div>
+
+  <nav class="glass-nav">
+    <div class="logo">
+      <picture>
+        <source srcset="logo.webp" type="image/webp">
+        <source srcset="logo.png" type="image/png">
+        <img src="logo.png" alt="DominiCoinO" width="40" height="40">
+      </picture>
+      <h1>DominiCoinO</h1>
+      <span class="ticker animate__animated animate__pulse animate__infinite">DCO</span>
+    </div>
+    <div class="nav-links">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#tokenomics" class="nav-link">Tokenomics</a>
+      <a href="#roadmap" class="nav-link">Roadmap</a>
+      <a href="#community" class="nav-link">Community</a>
+    </div>
+    <button id="connectBtn" class="wallet-btn glow-on-hover">
+      <i class="fas fa-wallet"></i> <span class="btn-text">Connect Wallet</span>
+    </button>
+  </nav>
+
+  <main>
+    <section class="hero animate__animated animate__fadeIn">
+      <div class="hero-content">
+        <h2 class="gradient-text">Trade DominiCoinO with Confidence</h2>
+        <p class="subtitle">Join the revolution of decentralized finance with zero commission trading</p>
+        
+        <!-- Animated Price Card -->
+        <div class="price-card animate__animated animate__pulse animate__infinite animate__slower">
+          <div class="price-info">
+            <span class="coin-name">DCO/USD</span>
+            <div class="price-ticker">
+              <span id="currentPrice">$0.4265</span>
+              <span id="priceChange" class="positive">+2.34%</span>
+            </div>
+          </div>
+          <div class="sparkline" id="sparkline"></div>
+        </div>
+        
+        <div class="action-buttons">
+          <a href="https://app.uniswap.org/#/swap?outputCurrency=0x2A4E29FF7731b9326f01ac0e0d85f93065b9734C" target="_blank" class="buy-btn animate__animated animate__fadeInLeft">
+            <i class="fas fa-arrow-up"></i> Buy DCO
+          </a>
+          <a href="https://app.uniswap.org/#/swap?inputCurrency=0x2A4E29FF7731b9326f01ac0e0d85f93065b9734C" target="_blank" class="sell-btn animate__animated animate__fadeInRight">
+            <i class="fas fa-arrow-down"></i> Sell DCO
+          </a>
+        </div>
+        
+        <div class="contract-info">
+          <button id="copyContract" class="contract-btn">
+            <i class="fas fa-copy"></i> Copy Contract
+          </button>
+          <a href="https://etherscan.io/token/0x2A4E29FF7731b9326f01ac0e0d85f93065b9734C" target="_blank" class="view-contract">
+            View on Etherscan <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="hero-chart">
+        <div class="chart-placeholder" id="chartContainer"></div>
+      </div>
+    </section>
+
+    <section id="about" class="glass-card animate__animated animate__fadeIn">
+      <h3 class="section-title">About DominiCoinO</h3>
+      <div class="about-content">
+        <div class="about-text">
+          <p>DominiCoinO (DCO) is a revolutionary decentralized cryptocurrency built on the Ethereum blockchain, designed to empower users with lightning-fast transactions, minimal fees, and a robust ecosystem that puts community first.</p>
+          <p>Our mission is to democratize access to financial tools and create opportunities for wealth generation in the decentralized economy.</p>
+        </div>
+        <div class="about-features">
+          <div class="feature-card">
+            <i class="fas fa-bolt"></i>
+            <h4>Fast Transactions</h4>
+            <p>Near-instant settlement times powered by Ethereum's advanced blockchain technology</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-lock"></i>
+            <h4>Secure</h4>
+            <p>Military-grade encryption and decentralized architecture protect your assets</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-users"></i>
+            <h4>Community Driven</h4>
+            <p>Governed by token holders through transparent voting mechanisms</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="tokenomics" class="glass-card animate__animated animate__fadeIn">
+      <h3 class="section-title">Tokenomics</h3>
+      <div class="tokenomics-grid">
+        <div class="tokenomics-card">
+          <div class="tokenomics-icon">
+            <i class="fas fa-coins"></i>
+          </div>
+          <h4>Total Supply</h4>
+          <p class="tokenomics-value">1,000,000,000 DCO</p>
+          <p class="tokenomics-desc">Fixed supply with deflationary mechanisms</p>
+        </div>
+        <div class="tokenomics-card">
+          <div class="tokenomics-icon">
+            <i class="fas fa-percentage"></i>
+          </div>
+          <h4>Tax</h4>
+          <p class="tokenomics-value">2% Buy/Sell</p>
+          <p class="tokenomics-desc">Supports liquidity and development</p>
+        </div>
+        <div class="tokenomics-card">
+          <div class="tokenomics-icon">
+            <i class="fas fa-lock"></i>
+          </div>
+          <h4>Liquidity</h4>
+          <p class="tokenomics-value">60% Locked</p>
+          <p class="tokenomics-desc">Secured for long-term stability</p>
+        </div>
+        <div class="tokenomics-card">
+          <div class="tokenomics-icon">
+            <i class="fas fa-chart-pie"></i>
+          </div>
+          <h4>Distribution</h4>
+          <p class="tokenomics-value">Fair Launch</p>
+          <p class="tokenomics-desc">No pre-sale, no team allocation</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap" class="glass-card animate__animated animate__fadeIn">
+      <h3 class="section-title">Roadmap</h3>
+      <div class="roadmap-container">
+        <div class="roadmap-line"></div>
+        <div class="roadmap-items">
+          <div class="roadmap-item">
+            <div class="roadmap-marker"></div>
+            <div class="roadmap-content">
+              <h4>Q1 2025</h4>
+              <ul>
+                <li>Token Launch & Initial Marketing</li>
+                <li>DEX Listings (Uniswap, PancakeSwap)</li>
+                <li>Community Building</li>
+              </ul>
+            </div>
+          </div>
+          <div class="roadmap-item">
+            <div class="roadmap-marker"></div>
+            <div class="roadmap-content">
+              <h4>Q2 2025</h4>
+              <ul>
+                <li>CEX Listings (3 exchanges)</li>
+                <li>Strategic Partnerships</li>
+                <li>Staking Platform Launch</li>
+              </ul>
+            </div>
+          </div>
+          <div class="roadmap-item">
+            <div class="roadmap-marker"></div>
+            <div class="roadmap-content">
+              <h4>Q3 2025</h4>
+              <ul>
+                <li>Ecosystem Development</li>
+                <li>Mobile Wallet Integration</li>
+                <li>Merchant Adoption Program</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="community" class="animate__animated animate__fadeIn">
+    <div class="footer-content glass-card">
+      <h3 class="section-title">Join Our Community</h3>
+      <div class="social-links">
+        <a href="https://twitter.com/DominiCoinO" target="_blank" class="social-link twitter" aria-label="Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://t.me/DominiCoinO" target="_blank" class="social-link telegram" aria-label="Telegram">
+          <i class="fab fa-telegram"></i>
+        </a>
+        <a href="https://discord.gg/DominiCoinO" target="_blank" class="social-link discord" aria-label="Discord">
+          <i class="fab fa-discord"></i>
+        </a>
+        <a href="https://medium.com/DominiCoinO" target="_blank" class="social-link medium" aria-label="Medium">
+          <i class="fab fa-medium"></i>
+        </a>
+      </div>
+      <div class="footer-links">
+        <a href="#" class="footer-link">Terms of Service</a>
+        <a href="#" class="footer-link">Privacy Policy</a>
+        <a href="#" class="footer-link">Whitepaper</a>
+        <a href="#" class="footer-link">Audit Report</a>
+      </div>
+      <p class="copyright">© 2025 DominiCoinO. All rights reserved.</p>
+      <p class="disclaimer">Cryptocurrency investments are volatile and high risk. Only invest what you can afford to lose.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js"></script>
+  <script>
+    // Animated gradient background
+    document.addEventListener('mousemove', (e) => {
+      document.querySelector('.gradient-bg').style.background = `
+        radial-gradient(at ${e.clientX}px ${e.clientY}px, 
+        rgba(56, 189, 248, 0.3) 0%, 
+        rgba(103, 232, 249, 0.1) 20%, 
+        rgba(249, 168, 212, 0.05) 40%, 
+        transparent 70%)
+      `;
+    });
+
+    // Initialize chart
+    const ctx = document.getElementById('chartContainer').getContext('2d');
+    const chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: Array.from({length: 24}, (_, i) => i + 'h'),
+        datasets: [{
+          label: 'DCO Price',
+          data: generateRandomData(24, 0.35, 0.45),
+          borderColor: '#00ff9d',
+          backgroundColor: 'rgba(0, 255, 157, 0.1)',
+          borderWidth: 2,
+          tension: 0.4,
+          fill: true,
+          pointRadius: 0
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          x: { display: false },
+          y: { display: false }
+        },
+        interaction: { intersect: false }
+      }
+    });
+
+    // Update chart every 5 seconds
+    setInterval(() => {
+      chart.data.datasets[0].data = generateRandomData(24, 0.35, 0.45);
+      chart.update();
+    }, 5000);
+
+    function generateRandomData(count, min, max) {
+      return Array.from({length: count}, () => 
+        Math.random() * (max - min) + min
+      );
+    }
+
+    // Add tilt effect to cards
+    VanillaTilt.init(document.querySelectorAll(".glass-card"), {
+      max: 15,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.2
+    });
+
+    // Wallet connection
+    const connectBtn = document.getElementById('connectBtn');
+    connectBtn.addEventListener('click', async () => {
+      if (window.ethereum) {
+        try {
+          const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+          connectBtn.innerHTML = `<i class="fas fa-check"></i> <span class="btn-text">${accounts[0].slice(0, 6)}...${accounts[0].slice(-4)}</span>`;
+          
+          window.ethereum.on('accountsChanged', (newAccounts) => {
+            if (newAccounts.length === 0) {
+              connectBtn.innerHTML = '<i class="fas fa-wallet"></i> <span class="btn-text">Connect Wallet</span>';
+            } else {
+              connectBtn.innerHTML = `<i class="fas fa-check"></i> <span class="btn-text">${newAccounts[0].slice(0, 6)}...${newAccounts[0].slice(-4)}</span>`;
+            }
+          });
+        } catch (err) {
+          console.error(err);
+          alert('Connection failed: ' + (err.message || err));
+        }
+      } else {
+        window.open('https://metamask.io/download.html', '_blank');
+      }
+    });
+
+    // Copy contract address
+    const copyBtn = document.getElementById('copyContract');
+    const contractAddress = '0x2A4E29FF7731b9326f01ac0e0d85f93065b9734C';
+    
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(contractAddress)
+        .then(() => {
+          const originalText = copyBtn.innerHTML;
+          copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+          setTimeout(() => {
+            copyBtn.innerHTML = originalText;
+          }, 2000);
+        })
+        .catch(err => {
+          console.error('Failed to copy: ', err);
+        });
+    });
+
+    // Animate sections when scrolling
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate__fadeIn');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section, footer').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
